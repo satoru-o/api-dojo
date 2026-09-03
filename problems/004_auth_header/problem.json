@@ -1,0 +1,17 @@
+{
+  "id": "004",
+  "order": 4,
+  "difficulty": 3,
+  "title": "リクエストヘッダーの利用（認証）",
+  "topic": "auth_header",
+  "prompt": "関数 get_profile(base_url, token) を定義してください。GET {base_url}/api/profile に Authorization: Bearer <token> ヘッダーを付けてリクエストしてください（token が None のときはヘッダーを付けずにリクエストしてください）。200が返ればレスポンスのJSON（dict）をそのまま返してください。401などエラーが返った場合は、握りつぶさずに response.raise_for_status() で例外を送出してください。",
+  "check": {
+    "mode": "client",
+    "function": "get_profile",
+    "cases": [
+      { "args": ["dojo-secret-token"], "expected": {"id": 1, "name": "Ada", "role": "admin"} },
+      { "args": ["wrong-token"], "expected_exception": "HTTPError" },
+      { "args": [null], "expected_exception": "HTTPError" }
+    ]
+  }
+}

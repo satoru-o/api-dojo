@@ -1,0 +1,15 @@
+{
+  "id": "003",
+  "order": 3,
+  "difficulty": 2,
+  "title": "POSTリクエストでJSONボディを送信する",
+  "topic": "post_json",
+  "prompt": "関数 create_items(base_url, names) を定義してください。names（文字列のリスト）を先頭から順に POST {base_url}/api/items へJSONボディ {\"name\": 名前} として送信し、サーバーが返した {\"id\":..., \"name\":...} を送信順にリストへまとめて返してください。",
+  "check": {
+    "mode": "client",
+    "function": "create_items",
+    "cases": [
+      { "args": [["Widget", "Gadget", "Gizmo"]], "expected": [{"id": 1, "name": "Widget"}, {"id": 2, "name": "Gadget"}, {"id": 3, "name": "Gizmo"}] }
+    ]
+  }
+}

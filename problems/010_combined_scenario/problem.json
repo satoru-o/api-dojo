@@ -1,0 +1,16 @@
+{
+  "id": "010",
+  "order": 10,
+  "difficulty": 5,
+  "title": "複合問題（認証 + ページネーション + エラーハンドリング）",
+  "topic": "combined",
+  "prompt": "関数 list_admin_users(base_url, token) を定義してください。GET {base_url}/api/secure/users に Authorization: Bearer <token> ヘッダーを付けて全ページ取得してください。このエンドポイントは各ケースの最初の1回だけ429（Retry-After付き）を返すので、そこはリトライしてください。トークンが間違っていて401が返った場合は、握りつぶさずに response.raise_for_status() で例外を送出してください。成功した場合は、role が \"admin\" のユーザーの name だけを抽出し、出現順にリストで返してください。",
+  "check": {
+    "mode": "client",
+    "function": "list_admin_users",
+    "cases": [
+      { "args": ["dojo-secret-token"], "expected": ["user05", "user10", "user15", "user20", "user25"] },
+      { "args": ["wrong-token"], "expected_exception": "HTTPError" }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "009",
+  "order": 9,
+  "difficulty": 4,
+  "title": "タイムアウト処理",
+  "topic": "timeout",
+  "prompt": "関数 fetch_with_timeout_retry(base_url, timeout_seconds, max_retries) を定義してください。GET {base_url}/api/slow に timeout=timeout_seconds を指定してリクエストしてください。requests.exceptions.Timeout が発生したら最大 max_retries 回までリトライし、それでもタイムアウトし続ける場合は最後の Timeout 例外を（辞書に変換せず）そのまま送出してください。成功したらレスポンスのJSON（dict）を返してください。",
+  "check": {
+    "mode": "client",
+    "function": "fetch_with_timeout_retry",
+    "cases": [
+      { "args": [5, 1], "expected": {"status": "ok", "slept": true} },
+      { "args": [0.5, 2], "expected_exception": "Timeout" }
+    ]
+  }
+}

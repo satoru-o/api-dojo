@@ -1,0 +1,15 @@
+{
+  "id": "008",
+  "order": 8,
+  "difficulty": 4,
+  "title": "レート制限対応（429リトライ）",
+  "topic": "rate_limit",
+  "prompt": "関数 fetch_rate_limited(base_url) を定義してください。GET {base_url}/api/limited にリクエストし、429が返ってきたらレスポンスヘッダー Retry-After の秒数だけ待って（time.sleep）からリトライしてください。200が返ったら、そのJSON（dict）を返してください。",
+  "check": {
+    "mode": "client",
+    "function": "fetch_rate_limited",
+    "cases": [
+      { "args": [], "expected": {"status": "ok"} }
+    ]
+  }
+}

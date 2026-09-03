@@ -1,0 +1,15 @@
+{
+  "id": "001",
+  "order": 1,
+  "difficulty": 1,
+  "title": "GETリクエストの基本",
+  "topic": "get",
+  "prompt": "関数 get_service_status(base_url) を定義してください。GET {base_url}/api/status にリクエストを送り、レスポンスのJSONから \"status\" の値（文字列）を取り出して返してください。（エンドポイント仕様は docs/api_reference.md を参照）",
+  "check": {
+    "mode": "client",
+    "function": "get_service_status",
+    "cases": [
+      { "args": [], "expected": "ok" }
+    ]
+  }
+}

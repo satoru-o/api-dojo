@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# api-dojo: 実行のたびに書き換わる個人の進捗・作業状態はコミットしない
+state/
+workspace/

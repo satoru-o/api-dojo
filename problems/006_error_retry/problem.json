@@ -1,0 +1,16 @@
+{
+  "id": "006",
+  "order": 6,
+  "difficulty": 4,
+  "title": "エラーレスポンスのハンドリング（例外・リトライ）",
+  "topic": "error_retry",
+  "prompt": "関数 fetch_with_retry(base_url, path, max_retries=5) を定義してください。GET {base_url}<path> にリクエストし、500が返ってきたら（少し待ってから）最大 max_retries 回までリトライしてください。200が返ったらそのJSON（dict）を返してください。リトライを使い切っても失敗し続ける場合は、辞書に変換して握りつぶすのではなく、response.raise_for_status() などで requests.exceptions.HTTPError を送出してください。",
+  "check": {
+    "mode": "client",
+    "function": "fetch_with_retry",
+    "cases": [
+      { "args": ["/api/flaky"], "kwargs": {"max_retries": 5}, "expected": {"status": "ok", "attempt": 3} },
+      { "args": ["/api/flaky-always"], "kwargs": {"max_retries": 3}, "expected_exception": "HTTPError" }
+    ]
+  }
+}

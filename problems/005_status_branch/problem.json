@@ -1,0 +1,19 @@
+{
+  "id": "005",
+  "order": 5,
+  "difficulty": 3,
+  "title": "ステータスコードによる分岐処理",
+  "topic": "status_branch",
+  "prompt": "関数 check_status(base_url, code) を定義してください。GET {base_url}/api/status-demo にクエリパラメータ code を付けてリクエストし、response.status_code に応じて次の文字列を返してください: 200→\"ok\"、400→\"bad_request\"、401→\"unauthorized\"、404→\"not_found\"、500→\"server_error\"。",
+  "check": {
+    "mode": "client",
+    "function": "check_status",
+    "cases": [
+      { "args": [200], "expected": "ok" },
+      { "args": [400], "expected": "bad_request" },
+      { "args": [401], "expected": "unauthorized" },
+      { "args": [404], "expected": "not_found" },
+      { "args": [500], "expected": "server_error" }
+    ]
+  }
+}

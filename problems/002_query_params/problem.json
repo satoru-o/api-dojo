@@ -1,0 +1,16 @@
+{
+  "id": "002",
+  "order": 2,
+  "difficulty": 2,
+  "title": "クエリパラメータ付きGET",
+  "topic": "query_params",
+  "prompt": "関数 get_user_names(base_url, page, limit) を定義してください。GET {base_url}/api/users にクエリパラメータ page と limit を付けてリクエストし、そのページに含まれるユーザーの name を出現順にリストで返してください。",
+  "check": {
+    "mode": "client",
+    "function": "get_user_names",
+    "cases": [
+      { "args": [1, 10], "expected": ["user01", "user02", "user03", "user04", "user05", "user06", "user07", "user08", "user09", "user10"] },
+      { "args": [3, 10], "expected": ["user21", "user22", "user23", "user24", "user25"] }
+    ]
+  }
+}
